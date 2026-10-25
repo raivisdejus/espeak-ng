@@ -23,6 +23,11 @@
 #include "espeak-ng/espeak_ng.h"
 #include "translate.h"
 
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
 extern ESPEAK_NG_API int GetFileLength(const char *filename);
 extern ESPEAK_NG_API void strncpy0(char *to, const char *from, int size);
 
@@ -31,6 +36,9 @@ long espeak_rand(long min, long max);
 
 int IsAlpha(unsigned int c);
 int IsEmoji(unsigned int c);
+int IsRegionalIndicator(unsigned int c);
+int IsEmojiModifier(unsigned int c);
+int IsEmojiTag(unsigned int c);
 int IsBracket(int c);
 int IsDigit(unsigned int c);
 int IsDigit09(unsigned int c);
@@ -49,4 +57,4 @@ int utf8_out(unsigned int c, char *buf);
 }
 #endif
 
-#endif // SPEECH_H
+#endif // ESPEAK_NG_COMMON_H
